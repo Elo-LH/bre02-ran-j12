@@ -71,4 +71,16 @@ window.addEventListener('DOMContentLoaded', function () {
       input.closest('div').style.backgroundColor = input.value
     })
   })
+  //bonus5
+  let captureButton = document.getElementById('capture-button')
+  let captureDisplay = document.getElementById('capture-display')
+  captureButton.addEventListener('click', function () {
+    html2canvas(document.querySelector('#capture')).then((canvas) => {
+      captureDisplay.innerHTML = ''
+      captureDisplay.innerText = 'Download the png :'
+      captureDisplay.appendChild(canvas)
+    })
+  })
+
+  //end of dom event listener
 })
