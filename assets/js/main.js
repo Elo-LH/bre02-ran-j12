@@ -23,6 +23,7 @@ function loadPalette(palette, headerDivs) {
 window.addEventListener('DOMContentLoaded', function () {
   let headerDivs = document.querySelectorAll('header div')
   let mainDivs = document.querySelectorAll('main div div ')
+  let headerInputs = document.querySelectorAll('header input')
   console.log(mainDivs)
   loadPalette(
     [
@@ -60,6 +61,14 @@ window.addEventListener('DOMContentLoaded', function () {
       } else {
         div.style.backgroundColor = ''
       }
+    })
+  })
+  //bonus 3
+  headerInputs.forEach((input) => {
+    input.addEventListener('change', function () {
+      console.log(input.value)
+      console.log()
+      input.closest('div').style.backgroundColor = input.value
     })
   })
 })
