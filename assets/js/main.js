@@ -46,8 +46,12 @@ window.addEventListener('DOMContentLoaded', function () {
   // le code de l'étape 3 se passe ici
   mainDivs.forEach((div) => {
     div.addEventListener('click', function () {
-      let color = getSelectedColor()
-      div.style.backgroundColor = color
+      if (div.style.backgroundColor === '') {
+        let color = getSelectedColor()
+        div.style.backgroundColor = color
+      } else {
+        div.style.backgroundColor = ''
+      }
     })
   })
 })
