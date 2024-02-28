@@ -22,6 +22,8 @@ function loadPalette(palette, headerDivs) {
 
 window.addEventListener('DOMContentLoaded', function () {
   let headerDivs = document.querySelectorAll('header div')
+  let mainDivs = document.querySelectorAll('main div div ')
+  console.log(mainDivs)
   loadPalette(
     [
       '#22f6f3',
@@ -42,4 +44,10 @@ window.addEventListener('DOMContentLoaded', function () {
   })
 
   // le code de l'étape 3 se passe ici
+  mainDivs.forEach((div) => {
+    div.addEventListener('click', function () {
+      let color = getSelectedColor()
+      div.style.backgroundColor = color
+    })
+  })
 })
