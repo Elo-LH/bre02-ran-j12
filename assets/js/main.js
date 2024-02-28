@@ -21,6 +21,19 @@ function loadPalette(palette, headerDivs) {
 }
 
 //bonus 6
+function addEventToCanvas() {
+  let mainDivs = document.querySelectorAll('main div div ')
+  mainDivs.forEach((div) => {
+    div.addEventListener('click', function () {
+      if (div.style.backgroundColor === '') {
+        let color = getSelectedColor()
+        div.style.backgroundColor = color
+      } else {
+        div.style.backgroundColor = ''
+      }
+    })
+  })
+}
 function generateGrid(number) {
   console.log(`Entered generate grid with number ${number} `)
 
@@ -42,6 +55,7 @@ function generateGrid(number) {
   mainDivs.forEach((div) => {
     div.style.gridTemplateColumns = `repeat(${number}, 1fr)`
   })
+  addEventToCanvas()
 }
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -87,6 +101,7 @@ window.addEventListener('DOMContentLoaded', function () {
   })
 
   // le code de l'étape 3 se passe ici
+
   mainDivs.forEach((div) => {
     div.addEventListener('click', function () {
       if (div.style.backgroundColor === '') {
