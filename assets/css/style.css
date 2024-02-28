@@ -9,8 +9,14 @@ body {
 body > header {
   padding: 0.5em;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   grid-column-gap: 0.1em;
+}
+header label {
+  grid-column-start: 9;
+  grid-column-end: 10;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 body > main {
@@ -40,4 +46,7 @@ button {
 body:last-child {
   background-color: #333333;
   color: white;
+}
+label {
+  padding: 15px;
 }

@@ -20,11 +20,34 @@ function loadPalette(palette, headerDivs) {
   }
 }
 
+//bonus 6
+function generateGrid(number) {
+  console.log(`Entered generate grid with number ${number} `)
+
+  let main = document.querySelector('main')
+  main.innerHTML = ''
+  for (let i = 0; i < number; i++) {
+    let rowDiv = document.createElement('div')
+    rowDiv.id = `row-${i}`
+    main.appendChild(rowDiv)
+    for (let j = 0; j < number; j++) {
+      let columnDiv = document.createElement('div')
+      columnDiv.className = `col-${j}`
+      rowDiv.appendChild(columnDiv)
+    }
+  }
+  main.style.gridTemplateRows = `repeat(${number}, 1fr)`
+  let mainDivs = document.querySelectorAll('main > div')
+  console.log(mainDivs)
+  mainDivs.forEach((div) => {
+    div.style.gridTemplateColumns = `repeat(${number}, 1fr)`
+  })
+}
+
 window.addEventListener('DOMContentLoaded', function () {
   let headerDivs = document.querySelectorAll('header div')
   let mainDivs = document.querySelectorAll('main div div ')
-  let headerInputs = document.querySelectorAll('header input')
-  console.log(mainDivs)
+  let headerInputs = document.querySelectorAll('header div input')
   loadPalette(
     [
       '#22f6f3',
@@ -52,6 +75,17 @@ window.addEventListener('DOMContentLoaded', function () {
     div.addEventListener('click', selectColor)
   })
 
+  //bonus6
+  generateGrid(20)
+
+  let inputNumber = document.getElementById('input-number')
+  console.log(inputNumber.value)
+
+  inputNumber.addEventListener('change', function () {
+    let number = inputNumber.value
+    generateGrid(number)
+  })
+
   // le code de l'étape 3 se passe ici
   mainDivs.forEach((div) => {
     div.addEventListener('click', function () {
@@ -67,7 +101,6 @@ window.addEventListener('DOMContentLoaded', function () {
   headerInputs.forEach((input) => {
     input.addEventListener('change', function () {
       console.log(input.value)
-      console.log()
       input.closest('div').style.backgroundColor = input.value
     })
   })
