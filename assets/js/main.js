@@ -34,6 +34,14 @@ window.addEventListener('DOMContentLoaded', function () {
       '#ecc606',
       '#f783f2',
       '#e89e80',
+      '#102942',
+      '#174019',
+      '#000000',
+      '#42240D',
+      '#2E1042',
+      '#A19010',
+      '#892BA3',
+      '#A35E53',
     ],
     headerDivs
   )
